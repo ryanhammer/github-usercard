@@ -88,6 +88,20 @@ function cardMaker(obj) {
     followers.textContent = `Followers: ${obj.data.followers}`;
     following.textContent = `Following: ${obj.data.following}`;
     bio.textContent = obj.data.bio;
+
+    // creating the element hierarchy
+    card.appendChild(userImg);
+    card.appendChild(cardInfo);
+    cardInfo.appendChild(name);
+    cardInfo.appendChild(username);
+    cardInfo.appendChild(location);
+    cardInfo.appendChild(profile);
+    cardInfo.appendChild(followers);
+    cardInfo.appendChild(following);
+    cardInfo.appendChild(bio);
+    profile.appendChild(address);
+
+    
 }
 /*
   List of LS Instructors Github username's:

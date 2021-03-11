@@ -101,7 +101,8 @@ function cardMaker(obj) {
     cardInfo.appendChild(bio);
     profile.appendChild(address);
 
-    
+    // returning the finished card
+    return card;
 }
 /*
   List of LS Instructors Github username's:

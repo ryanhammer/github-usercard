@@ -76,7 +76,18 @@ function cardMaker(obj) {
     // adding class names, attributes, and text
     card.classList.add("card");
     userImg.src = obj.data.avatar_url;
-
+    cardInfo.classList.add("card-info");
+    name.classList.add("name");
+    name.textContent = obj.data.name;
+    username.classList.add("username");
+    username.textContent = obj.data.login;
+    location.textContent = obj.data.location;
+    profile.textContent = "Profile:";
+    address.href = obj.data.html_url;
+    address.textContent = obj.data.html_url;
+    followers.textContent = `Followers: ${obj.data.followers}`;
+    following.textContent = `Following: ${obj.data.following}`;
+    bio.textContent = obj.data.bio;
 }
 /*
   List of LS Instructors Github username's:

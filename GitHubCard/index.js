@@ -3,6 +3,8 @@
     (replacing the placeholder with your Github name):
     https://api.github.com/users/<your name>
 */
+axios
+.get("https://api.github.com/users/ryanhammer")
 
 /*
   STEP 2: Inspect and study the data coming back, this is YOUR
@@ -11,7 +13,15 @@
 
     Skip to STEP 3.
 */
-
+.then( (res) => {
+    console.log(res);
+})
+.catch( (err) => {
+    console.log(err);
+})
+.finally( () => {
+    console.log("done");
+})
 /*
   STEP 4: Pass the data received from Github into your function,
     and append the returned markup to the DOM as a child of .cards

@@ -3,6 +3,7 @@
     (replacing the placeholder with your Github name):
     https://api.github.com/users/<your name>
 */
+const cards = document.querySelector(".cards");
 axios
 .get("https://api.github.com/users/ryanhammer")
 
@@ -13,8 +14,14 @@ axios
 
     Skip to STEP 3.
 */
+
+/*
+  STEP 4: Pass the data received from Github into your function,
+    and append the returned markup to the DOM as a child of .cards
+*/
 .then( (res) => {
-    console.log(res);
+    const newCard = cardMaker(res);
+    cards.appendChild(newCard);
 })
 .catch( (err) => {
     console.log(err);
@@ -22,11 +29,6 @@ axios
 .finally( () => {
     console.log("done");
 })
-/*
-  STEP 4: Pass the data received from Github into your function,
-    and append the returned markup to the DOM as a child of .cards
-*/
-
 /*
   STEP 5: Now that you have your own card getting added to the DOM, either
     follow this link in your browser https://api.github.com/users/<Your github name>/followers,
@@ -81,8 +83,8 @@ function cardMaker(obj) {
     name.textContent = obj.data.name;
     username.classList.add("username");
     username.textContent = obj.data.login;
-    location.textContent = obj.data.location;
-    profile.textContent = "Profile:";
+    location.textContent = `Location: ${obj.data.location}`;
+    profile.textContent = "Profile: ";
     address.href = obj.data.html_url;
     address.textContent = obj.data.html_url;
     followers.textContent = `Followers: ${obj.data.followers}`;
